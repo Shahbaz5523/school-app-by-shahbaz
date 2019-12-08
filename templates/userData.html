@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>userData</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        .table td,
+        th {
+            width: 20%;
+        }
+
+        @media only screen and (max-width: 600px) and (min-width: 360px) {
+
+            .table td,
+            th {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="/">Home</a><br><br>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">celNo</th>
+                <th scope="col">Pass</th>
+                <th scope="col">Type</th>
+                <th scope="col">Update</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <form action="/updateData" method="POST">
+                <th scope="col"><input type="text" name="name" class="form-control" required value='{{ user["name"] }}'>
+                </th>
+                <th scope="col"><input type="text" name="number" class="form-control" required
+                        value='{{ user["cellNo"] }}'></th>
+                <th scope="col"><input type="text" name="password" class="form-control" required
+                        value='{{ user["password"] }}'></th>
+                <th scope="col">
+                    <select class="custom-select" name="userType" id="inputGroupSelect01">
+                        <option value="Student">{{ utype }}</option>
+                    </select>
+                </th>
+                <th scope="col"><button type="submit" class="btn btn-primary">Update</button></th>
+            </form>
+        </tbody>
+</body>
+
+</html>

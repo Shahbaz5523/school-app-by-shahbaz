@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Page</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 70%;
+            transform: translate(-50%,-50%);
+        }
+
+        .login-img img {width:10%; max-height:20%;}
+    </style>
+</head>
+
+<body>
+
+    <a href="/">Home</a>
+
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="login-img">
+                            <img src="../static/imgs/admin.png" style="width:100px;">
+                        </div>
+                        <div class="login-title">
+                            <h4>Log In</h4>
+                        </div>
+                        <div class="login-form mt-4">
+                            <form  action="/addStaff" method="POST">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input id="email" name="name" placeholder="Admin name"
+                                            class="form-control" required type="text">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <input type="password" name="password" required class="form-control" id="pass" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <button type="submit" class="btn btn-block" style="background-color:#ff4f19; color: white">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
