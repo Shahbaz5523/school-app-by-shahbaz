@@ -32,7 +32,6 @@ class Teacher(db.Model):
 
 # db.create_all()
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -113,6 +112,7 @@ def userData():
             mystudents = Student().query.all()
             for student in mystudents:
                 if userName == student.name and userPassword == student.password:
+                    print("login")
                     targetStudent = Student().query.filter_by(name=userName).first()
                     return render_template('userData.html', user=targetStudent, utype=userType)
                 else:
@@ -142,10 +142,10 @@ def updateData():
             db.session.commit()
             return render_template('dataUpgrade.html')
         else:
-            targetteacher = Teacher().query.filter_by(name=username).first()
-            targetteacher.name = username
-            targetteacher.number = usernumber
-            targetteacher.password = userPassword
+            targetTeacher = Teacher().query.filter_by(name=username).first()
+            targetTeacher.name = username
+            targetTeacher.number = usernumber
+            targetTeacher.password = userPassword
             db.session.commit()
             return render_template('dataUpgrade.html')
 
