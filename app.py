@@ -109,22 +109,17 @@ def userData():
         userType = request.form['userType']
         userPassword = request.form['password']
         if userType == 'Student':
-            mystudents = Student().query.all()
-            for student in mystudents:
-                if userName == student.name and userPassword == student.password:
-                    print("login")
-                    targetStudent = Student().query.filter_by(name=userName).first()
+            targetStudent = Student().query.filter_by(name=userName, password=userPassword).first()
+            if targetStudent is not None:
                     return render_template('userData.html', user=targetStudent, utype=userType)
-                else:
+            else:
                     return render_template('staffLogin.html')
         else:
-            myteachers = Teacher().query.all()
-            for teacher in myteachers:
-                if userName == teacher.name and userPassword == teacher.password:
-                    targetTeacher = Teacher().query.filter_by(name=userName).first()
-                    return render_template('userData.html', user=targetTeacher, utype=userType)
-                else:
-                    return render_template('staffLogin.html')
+            targetTeacher = Teacher().query.filter_by(name=userName, password=userPassword).first()
+            if targetTeacher is not None:
+                return render_template('userData.html', user=targetTeacher, utype=userType)
+            else:
+                return render_template('staffLogin.html')
 
 
 @app.route('/updateData', methods=['POST', 'GET'])
